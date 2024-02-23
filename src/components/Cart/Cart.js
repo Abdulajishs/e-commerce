@@ -1,26 +1,11 @@
 import { Button, Modal, Table } from "react-bootstrap"
+import CartItem from "./CartItem";
+import { useContext } from "react";
+import CartContext from "../../store/cart-context";
 
 const Cart = (props) => {
-    const cartElements = [
-        {
-            title: 'Colors',
-            price: 100,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-            quantity: 2,
-        },
-        {
-            title: 'Black and white Colors',
-            price: 50,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-            quantity: 3,
-        },
-        {
-            title: 'Yellow and Black Colors',
-            price: 70,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-            quantity: 1,
-        }
-    ]
+
+    const cartCntx = useContext(CartContext);
 
     return (
         <Modal show={true} onHide={props.onClose}>
@@ -37,15 +22,8 @@ const Cart = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {cartElements.map((ele) => (
-                            <tr>
-                                <td>
-                                    {<img src={ele.imageUrl} alt={ele.title} />}
-                                    {ele.title}
-                                </td>
-                                <td>{ele.price}</td>
-                                <td>{ele.quantity}<Button variant="danger" size="sm" >REMOVE</Button> </td>
-                            </tr>
+                        {cartCntx.items.map((ele) => (
+                            <CartItem ele={ele} />
                         ))}
                     </tbody>
                 </Table>
