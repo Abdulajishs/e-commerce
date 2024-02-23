@@ -1,3 +1,5 @@
+import { Button, Col, Row } from "react-bootstrap";
+
 const ProductLists = (porps) => {
     const productsArr = [
         {
@@ -22,15 +24,19 @@ const ProductLists = (porps) => {
         }
     ]
     return (
-        <>
+        <Row >
             {productsArr.map((item) => (
-                <div>
+                <Col md={6} >
+                <div style={{padding:"10% 25% 20% 25%"}}>
                     <h3>{item.title}</h3>
-                    <img src={item.imageUrl} alt={item.title} style={{ maxWidth: '100%' }} />
+                    <img src={item.imageUrl} alt={item.title}  />
                     <p>${item.price}</p>
+                    <Button variant="primary">ADD TO CART</Button>
                 </div>
+                </Col>
+                
             ))}
-        </>
+        </Row>
     )
 }
 
