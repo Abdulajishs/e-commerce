@@ -1,30 +1,29 @@
-import { useState } from 'react';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Store from './pages/Store';
+import RootLayout from './pages/Root';
 import Footer from './components/Layout/Footer/Footer';
-import Header from './components/Layout/Header/Header';
-import ProductLists from './components/Products/Products';
-import Cart from './components/Cart/Cart';
-import CartProvider from './store/CartProvider';
+import HeaderGlobal from './components/Layout/Header/HeaderGlobal';
+
+
 
 function App() {
-
-  const [showCart, setShowCart] = useState(false);
-
-  const showCartHandler = () => {
-    setShowCart(true)
-  }
-  const hideCardHandler = () => {
-    setShowCart(false)
-  }
-
   return (
-    <CartProvider>
-      {showCart && <Cart onClose={hideCardHandler} />}
-      <Header onShowCart={showCartHandler} />
-      <ProductLists />
+    <>
+      <BrowserRouter>
+        <HeaderGlobal />
+        <Routes>
+          <Route path="/" element={<RootLayout />}>
+            <Route index element={<Home />} />
+            <Route path="store" element={<Store />} />
+            <Route path="about" element={<About />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
       <Footer />
-    </CartProvider>
-  );
+    </>)
 }
 
 export default App;

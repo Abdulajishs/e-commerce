@@ -1,25 +1,32 @@
 import { Button, Col } from "react-bootstrap";
 import CartContext from "../../store/cart-context";
 import { useContext } from "react";
+import classes from "./ListProduct.module.css"
 
-const Listproduct =(props)=>{
-    const {item} = props;
-    const cntx= useContext(CartContext)
-
-    const addItemToCartHandler = (event) =>{
+const Listproduct = (props) => {
+    const { item } = props;
+    const cntx = useContext(CartContext)
+    
+    const addItemToCartHandler = (event) => {
         event.preventDefault()
-        cntx.addItemToCart({...item,quantity:1})
+        cntx.addItemToCart({ ...item, quantity: 1 })
     }
 
-    return(
+    return (
         <Col md={6} >
-                <div style={{padding:"10% 25% 20% 25%"}}>
-                    <h3>{item.title}</h3>
-                    <img src={item.imageUrl} alt={item.title}  />
-                    <p>${item.price}</p>
-                    <Button variant="primary" onClick={addItemToCartHandler}>ADD TO CART</Button>
+            <div className={classes["product-container"]}>
+                <h3>{item.title}</h3>
+                <div className={classes["image-container"]}>
+                    <img
+                        src={item.imageUrl}
+                        alt={item.title}
+                        className={classes["product-image"]}
+                    />
                 </div>
-                </Col>
+                <p>${item.price}</p>
+                <Button variant="primary" onClick={addItemToCartHandler}>ADD TO CART</Button>
+            </div>
+        </Col>
     )
 }
 

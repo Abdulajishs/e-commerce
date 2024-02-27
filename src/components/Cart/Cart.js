@@ -6,7 +6,7 @@ import CartContext from "../../store/cart-context";
 const Cart = (props) => {
 
     const cartCntx = useContext(CartContext);
-
+    console.log(cartCntx);
     return (
         <Modal show={true} onHide={props.onClose}>
             <Modal.Header closeButton>

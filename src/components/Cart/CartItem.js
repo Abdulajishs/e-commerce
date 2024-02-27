@@ -4,6 +4,7 @@ import CartContext from "../../store/cart-context";
 
 const CartItem = (props) => {
     const { ele } = props;
+    console.log(ele);
     const cntx = useContext(CartContext);
 
     const  removeItemHandler =(event)=>{

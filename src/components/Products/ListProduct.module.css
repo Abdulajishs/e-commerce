@@ -1,0 +1,19 @@
+.product-container {
+    padding: 10% 25% 20% 25%;
+}
+
+.image-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.product-image {
+    width: 100%;
+    transition: transform 1s;
+}
+
+.image-container:hover .product-image {
+    transform: scale(1.5);
+}
