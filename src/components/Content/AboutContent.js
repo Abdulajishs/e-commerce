@@ -1,13 +1,12 @@
 import { Container, Image } from "react-bootstrap";
+import bandMembers from "./Band Members.png"
 import classes from "./AboutContent.module.css"
 const AboutContent = () => {
     return (
-        <Container className={classes.containerCustom}>
-            <h2 >ABOUT</h2>
-            <div>
-            <Image src="./Band Members.png" roundedCircle />
-            <p>
-                Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of sorrows,
+        <Container className={classes.container} >
+          <Image src={bandMembers} alt=""className={classes.image} roundedCircle />
+        <div>
+          <p>Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of sorrows,
                 hates no prosecutors will unfold in the enduring of which were born in it? Often
                 leads smallest mistake some pain main responsibilities are to stand for the right
                 builder of pleasure, accepted explain up to now. , The things we are accusing of these
@@ -22,11 +21,9 @@ const AboutContent = () => {
                 The greater, therefore, an obstacle to the duties of the debts receives the very great importance
                 to us that these are consequent to that question is answered, which was selected for the fault,
                 it is often one of us, however, have any! Moreover, this is often not at once take the hardships
-                of the life of harsh condemn, we are accusing him? Him whom something large cisterns.
-
-            </p>
-            </div>
-        </Container>
+                of the life of harsh condemn, we are accusing him? Him whom something large cisterns.</p>
+        </div>
+      </Container>
     )
 }
 
