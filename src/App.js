@@ -3,29 +3,27 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Store from './pages/Store';
-import RootLayout from './pages/Root';
-import Footer from './components/Layout/Footer/Footer';
-import HeaderGlobal from './components/Layout/Header/HeaderGlobal';
+import RootLayout from './components/Layout/RootLayout/Root';
 import Contact from './pages/Contact';
 import ProductDetails from './pages/ProductDetails';
-
+import Login from './pages/Login';
 
 
 function App() {
   return (
     <>
-        <HeaderGlobal />
-        <Routes>/
-          <Route path="/" element={<RootLayout />}>
-            <Route index element={<Home />}/>
-            <Route path="store" element={<Store />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path='product/:id' element={<ProductDetails/>} />
-          </Route>
+      <RootLayout >
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path="store" element={<Store />} />
+          <Route path="about" element={<About />} />
+          <Route path="login" element={<Login />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path='product/:id' element={<ProductDetails />} />
         </Routes>
-      <Footer />
-    </>)
+      </RootLayout>
+    </>
+    )
 }
 
 export default App;
