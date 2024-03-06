@@ -1,12 +1,14 @@
 import { Button, Modal, Table } from "react-bootstrap"
 import CartItem from "./CartItem";
-import { useContext } from "react";
+import {  useContext, } from "react";
 import CartContext from "../../store/cart-context";
 
 const Cart = (props) => {
 
-    const cartCntx = useContext(CartContext);
-    console.log(cartCntx);
+    const {items} = useContext(CartContext);
+
+    // console.log(items);
+
     return (
         <Modal show={true} onHide={props.onClose}>
             <Modal.Header closeButton>
@@ -22,9 +24,12 @@ const Cart = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {cartCntx.items.map((ele) => (
+                        {items.map((ele) => (
                             <CartItem ele={ele} />
                         ))}
+                        {/* {cartCntx.items.map((ele) => (
+                            <CartItem ele={ele} />
+                        ))} */}
                     </tbody>
                 </Table>
             </Modal.Body>

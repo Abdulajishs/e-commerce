@@ -10,7 +10,8 @@ const Listproduct = (props) => {
 
     const addItemToCartHandler = (event) => {
         event.preventDefault()
-        cntx.addItemToCart({ ...item, quantity: 1 })
+        // cntx.addItemToCart({ ...item, quantity: 1 })
+        cntx.addItemToServer({ ...item, quantity: 1 })
     }
 
     return (

@@ -4,16 +4,18 @@ import CartContext from "../../store/cart-context";
 
 const CartItem = (props) => {
     const { ele } = props;
-    console.log(ele);
+    // console.log(ele);
     const cntx = useContext(CartContext);
 
     const  removeItemHandler =(event)=>{
         event.preventDefault();
-        cntx.removeItemFromCart(ele)
+        // cntx.removeItemFromCart(ele)
+        console.log(ele);
+        cntx.removeItemToServer(ele._id)
     }
 
     return (
-        <tr>
+        <tr >
             <td>
                 {<img src={ele.imageUrl} alt={ele.title} />}
                 {ele.title}

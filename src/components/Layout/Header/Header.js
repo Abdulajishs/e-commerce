@@ -6,11 +6,9 @@ import CartContext from "../../../store/cart-context";
 import classes from "./Header.module.css"
 
 const Header = (props) => {
+  const {items} = useContext(CartContext);
 
-  const cntx = useContext(CartContext);
-  // console.log(cntx.items);
-
-  const total = cntx.items.reduce((acc, curr) => acc + curr.quantity, 0);
+  const total = items.reduce((acc, curr) => acc + curr.quantity, 0);
 
   return (
       <Navbar bg="black" variant="dark" >
